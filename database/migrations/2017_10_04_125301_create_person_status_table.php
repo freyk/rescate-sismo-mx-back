@@ -14,13 +14,13 @@ class CreatePersonStatusTable extends Migration
      */
     public function up()
     {
-        Schema::create('person_status', function (Blueprint $table) {
-            $table->string('option', 255);
+        Schema::create('person_statuses', function (Blueprint $table) {
+            $table->string('option', 255)->primary();
             $table->unsignedInteger('order');
             $table->string('description', 255);
         });
 
-        DB::table('person_status')->insert([
+        DB::table('person_statuses')->insert([
             ['option' => 'DESAPARECIDO', 'order' => 0, 'description' => 'Desaparecido'],
             ['option' => 'ENCONTRADO', 'order' => 3, 'description' => 'Encontrado'],
             ['option' => 'HOSPITALIZADO', 'order' => 2, 'description' => 'Hospitalizado'],
@@ -35,6 +35,6 @@ class CreatePersonStatusTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('person_status');
+        Schema::dropIfExists('person_statuses');
     }
 }
