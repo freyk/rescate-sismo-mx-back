@@ -1,0 +1,14 @@
+{
+  "name": "rescatesismo-front",
+  "version": "1.0.0",
+  "description": "Lista de personas rescatadas del sismo en Mexico",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Marco Pedraza",
+  "license": "MIT",
+  "dependencies": {
+    "inuitcss": "^6.0.0-beta.5"
+  }
+}
