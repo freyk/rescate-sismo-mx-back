@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Laravel\Passport\Passport;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 
@@ -65,8 +66,12 @@ class RouteServiceProvider extends ServiceProvider
      */
     protected function mapApiV1Routes()
     {
-        Route::prefix('api/v1')
+        $apiPrefix = 'api/v1';
+
+        Route::prefix($apiPrefix)
              ->namespace($this->namespace)
              ->group(base_path('routes/API/v1/routes.php'));
+
+        Passport::routes(null, ['prefix' => "{$apiPrefix}/oauth"]);
     }
 }
